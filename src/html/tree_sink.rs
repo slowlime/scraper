@@ -120,7 +120,7 @@ impl TreeSink for Html {
 
                 let did_concat = parent.last_child().map_or(false, |mut n| match n.value() {
                     Node::Text(t) => {
-                        t.text.push_tendril(&text);
+                        t.text.push_str(&text);
                         true
                     }
                     _ => false,
@@ -165,7 +165,7 @@ impl TreeSink for Html {
                             .prev_sibling()
                             .map_or(false, |mut n| match n.value() {
                                 Node::Text(t) => {
-                                    t.text.push_tendril(&text);
+                                    t.text.push_str(&text);
                                     true
                                 }
                                 _ => false,
